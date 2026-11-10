@@ -47,7 +47,7 @@
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --cta:#E5532A;--cta-h:#F06238;--brand-ink:#FF8A5C;--brand-soft:rgba(240,78,35,.16);
+    --cta:#C8431A;--cta-h:#E5532A;--brand-ink:#FF8A5C;--brand-soft:rgba(240,78,35,.16);
     --good-ink:#5BD17A;--good-soft:rgba(46,158,68,.18);--watch-ink:#F2B64C;--watch-soft:rgba(217,138,6,.18);--act-soft:rgba(198,40,40,.2);--info:#6AA8F0;--info-soft:rgba(37,99,168,.22);
     --bg:#000000;--card:#1C1C1E;--card2:#232326;--ink:#F5F5F7;--ink2:#C7C7CC;--ink3:#98989D;
     --line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.06);--fill:rgba(255,255,255,.06);
@@ -57,7 +57,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-html{overflow-x:hidden;scroll-behavior:smooth}
+html{overflow-x:hidden;scroll-behavior:smooth;color-scheme:light dark}
 body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .num{font-variant-numeric:tabular-nums}
 button{font-family:inherit;color:inherit}
@@ -98,13 +98,13 @@ main.wrap{overflow-x:clip;padding-top:8px;padding-bottom:72px;min-height:60vh}
 .rv.in{opacity:1;transform:none}
 
 /* common */
-.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh1);padding:32px;margin-bottom:24px;min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh1);padding:32px;margin-bottom:24px;min-width:0}
 .card h3{margin:0;font-weight:700;font-size:22px;letter-spacing:-.022em;line-height:1.2}
 .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;flex-wrap:wrap}
 .help{margin:6px 0 0;color:var(--ink3);font-size:14px;max-width:62ch}
 .eyebrow{font-size:13px;font-weight:600;color:var(--brand-ink);margin-bottom:6px;letter-spacing:-.005em}
 .pill{font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--fill);color:var(--ink2);white-space:nowrap}
-.btn{border:0;font-weight:600;font-size:14px;border-radius:999px;min-height:44px;padding:0 22px;cursor:pointer;background:var(--fill);color:var(--ink);transition:background .2s,transform .15s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn{border:0;font-weight:600;font-size:14px;border-radius:999px;min-height:44px;padding:0 22px;cursor:pointer;background:var(--fill);color:var(--ink);transition:background .2s,transform .2s var(--spring),box-shadow .2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .btn:active{transform:scale(.97)}
 .btn.p{background:var(--cta);color:#fff}.btn.p:hover{background:var(--cta-h)}
 .btn.s2{background:var(--fill)}.btn.s2:hover{background:var(--line)}
@@ -116,7 +116,7 @@ main.wrap{overflow-x:clip;padding-top:8px;padding-bottom:72px;min-height:60vh}
 .dot{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block}
 
 /* hero */
-.hero{position:relative;padding:64px 0 48px;isolation:isolate}
+.hero{position:relative;padding:40px 0 36px;isolation:isolate}
 .glow{position:absolute;z-index:-1;inset:-40px -10% auto auto;width:720px;height:480px;background:radial-gradient(closest-side,rgba(240,78,35,.20),rgba(255,122,69,.08) 55%,transparent);filter:blur(10px);pointer-events:none}
 .hello{font-size:21px;font-weight:600;color:var(--ink3);letter-spacing:-.015em}
 .hero h2{margin:6px 0 0;font-size:64px;line-height:1.04;font-weight:800;letter-spacing:-.04em;max-width:15ch}
@@ -147,12 +147,15 @@ main.wrap{overflow-x:clip;padding-top:8px;padding-bottom:72px;min-height:60vh}
 .nu .acts .btn{flex:1}
 /* KPIs */
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
-.kpi{background:var(--card);border-radius:var(--r);padding:28px;box-shadow:var(--sh1);position:relative;overflow:hidden}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--sh1);position:relative;overflow:hidden;transition:transform .35s var(--spring)}
 .kpi .l{font-size:14px;font-weight:600;color:var(--ink2)}
 .kpi .v{font-size:56px;font-weight:800;letter-spacing:-.045em;line-height:1;margin:14px 0 10px;font-variant-numeric:tabular-nums}
 .kpi .v small{font-size:24px;font-weight:700;color:var(--ink3);margin-left:4px;letter-spacing:-.02em}
 .kpi .d{font-size:13.5px;color:var(--ink3)}
 .kpi.hl .v{background:linear-gradient(90deg,#E8461C,#FF7A45);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-color-scheme:dark){
+  .grad,.kpi.hl .v{background:linear-gradient(90deg,#FF9A72,#FFD0B8);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
 .kpi .ico{position:absolute;right:24px;top:24px;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--fill);color:var(--ink3)}
 .kpi.hl .ico{background:var(--brand-soft);color:var(--brand-ink)}
 .late{color:var(--watch-ink);font-weight:600}
@@ -161,7 +164,7 @@ main.wrap{overflow-x:clip;padding-top:8px;padding-bottom:72px;min-height:60vh}
 .home{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
 .home .card{margin-bottom:24px}
 .list{border-radius:var(--r2);overflow:hidden;background:var(--card2);border:1px solid var(--line2)}
-.q{display:flex;align-items:center;gap:16px;padding:18px 20px;cursor:pointer;background:transparent;width:100%;text-align:left;color:var(--ink);border:0;border-bottom:1px solid var(--line2);transition:background .2s;min-height:72px}
+.q{display:flex;align-items:center;gap:16px;padding:18px 20px;cursor:pointer;background:transparent;width:100%;text-align:left;color:var(--ink);border:0;border-bottom:1px solid var(--line2);transition:background .2s,transform .25s var(--spring);min-height:72px}
 .q:last-child{border-bottom:0}
 .q:hover{background:var(--fill)}
 .q .mid{flex:1;min-width:0}
@@ -240,6 +243,7 @@ body.v-matt .matt{display:block}
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .3s;z-index:60}
 .scrim.on{opacity:1;pointer-events:auto}
 .drawer{position:fixed;top:12px;right:12px;bottom:12px;width:min(520px,calc(100% - 24px));background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(28px);backdrop-filter:saturate(180%) blur(28px);border:1px solid var(--glass-b);border-radius:28px;z-index:70;transform:translateX(calc(100% + 24px));transition:transform .5s var(--spring),visibility 0s .5s;display:flex;flex-direction:column;box-shadow:var(--sh2);visibility:hidden;overflow:hidden}
+.drawer.wide{width:min(920px,calc(100% - 24px))}
 .drawer.on{transform:none;visibility:visible;transition:transform .5s var(--spring),visibility 0s}
 .grab{display:none}
 .dh{padding:24px 24px 16px}
@@ -434,6 +438,36 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
 .cf input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;min-height:44px;padding:0 16px;font:inherit;font-size:15px;background:var(--card);color:var(--ink)}
 .cf button{border:0;background:var(--cta);color:#fff;border-radius:999px;min-width:64px;min-height:44px;padding:0 16px;font-weight:600;font-size:14px;cursor:pointer}
 .demo{font-size:11.5px;color:var(--ink3);text-align:center;padding:0 12px 10px}
+/* week summary */
+.weekwrap{margin:0 0 28px}
+.weeklabel{margin:0 0 12px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.week{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ws{background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border:1px solid var(--glass-b);border-radius:22px;padding:18px 16px 16px;box-shadow:var(--sh1);min-width:0;animation:viewIn .6s var(--spring) both}
+.ws:nth-child(2){animation-delay:.06s}.ws:nth-child(3){animation-delay:.12s}.ws:nth-child(4){animation-delay:.18s}
+.ws b{display:flex;align-items:baseline;gap:4px;font-size:40px;font-weight:800;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums}
+.ws b small{font-size:15px;font-weight:700;color:var(--ink3);letter-spacing:-.02em}
+.ws .wl{display:block;margin-top:10px;font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.ws .wd{display:block;margin-top:2px;font-size:12.5px;line-height:1.35;color:var(--ink3);font-weight:500}
+/* quote compare */
+.cmpx{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.side{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 16px 8px;min-width:0;box-shadow:var(--sh1)}
+.side.past{background:var(--card2)}
+.side .k{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink)}
+.side.past .k{color:var(--ink3)}
+.side .big{font-size:40px;font-weight:800;letter-spacing:-.045em;line-height:1;margin-top:8px;font-variant-numeric:tabular-nums}
+.side .big.diff{color:var(--watch-ink)}
+.side .big.match{color:var(--good-ink)}
+.side .cap{font-size:12.5px;color:var(--ink3);margin-top:4px}
+.side .sub{margin:16px 0 6px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.sl{list-style:none;margin:0;padding:0}
+.sl li{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line2);font-size:13.5px;line-height:1.35}
+.sl li span{min-width:0}
+.sl li i{display:block;font-style:normal;color:var(--ink3);font-size:12px;margin-top:2px}
+.sl li b{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.sl li.hot{background:var(--watch-soft);margin:4px -8px;padding:8px;border-radius:12px;border-top-color:transparent}
+.delta{margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--watch-soft);color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
+.scope{font-size:13.5px;color:var(--ink2);line-height:1.45;margin:8px 0 12px}
+.quiet{font-size:13.5px;color:var(--ink2);line-height:1.45;margin:10px 0 14px}
 /* responsive */
 @media (max-width:1080px){.herogrid{grid-template-columns:1fr}.nextup{display:none}.home,.grid2{grid-template-columns:1fr}.next,.mgrid{grid-template-columns:repeat(2,1fr)}.role{grid-template-columns:1fr}.hero h2{font-size:52px}nav.tabs .ttl{display:none}nav.tabs .wrap{justify-content:center}}
 @media (max-width:760px){
@@ -441,9 +475,12 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
   .wrap{padding:0 16px}
   body{font-size:15px;padding-bottom:var(--navh)}
   header.top{position:sticky;top:0;z-index:40;background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--glass-b)}
-  header.top .wrap{height:56px;gap:10px}
-  .logo{height:30px}
-  .tag{font-size:10.5px;padding:4px 8px}
+  header.top .wrap{height:auto;min-height:52px;padding-top:8px;padding-bottom:8px;display:grid;grid-template-columns:1fr auto;grid-template-areas:"logo seg" "tag tag";gap:6px 10px;align-items:center}
+  .brand{display:contents}
+  .logo{grid-area:logo;height:30px}
+  .tag{grid-area:tag;justify-self:start;white-space:normal;line-height:1.3;font-size:11px;padding:4px 8px}
+  .spacer{display:none}
+  .seg{grid-area:seg}
   .seg button{min-height:36px;padding:0 12px;font-size:13px}
   nav.tabs{display:none}
   .bnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;height:var(--navh);background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:1px solid var(--glass-b);z-index:50;padding:6px 4px env(safe-area-inset-bottom)}
@@ -453,14 +490,28 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
   .bnav .badge{position:absolute;top:0;left:calc(50% + 6px);font-size:10.5px;min-width:18px;height:18px}
   main.wrap{padding-bottom:40px}
   .view:not(#v-today){padding-top:20px}
-  .hero{padding:32px 0 28px}
+  .hero{padding:12px 0 12px}
+  .weekwrap{margin-bottom:18px}
+  .week{grid-template-columns:1fr 1fr;gap:8px}
+  .ws{padding:14px 12px 12px;border-radius:18px}
+  .ws b{font-size:32px}
+  .ws .wl{font-size:13px;margin-top:8px}
+  .ws .wd{font-size:12px}
+  .cmpx{grid-template-columns:1fr 1fr;gap:8px;align-items:start}
+  .side{padding:12px 10px 8px}
+  .side .big{font-size:28px}
+  .side .k{font-size:10.5px;letter-spacing:.04em}
+  .side .cap,.scope,.delta{font-size:12px}
+  .sl li{font-size:12px;gap:6px;padding:6px 0}
+  .sl li i{font-size:11px}
   .glow{width:420px;height:340px;inset:-60px -40% auto auto}
   .hello{font-size:17px}
   .hero h2{font-size:40px;letter-spacing:-.035em}
-  .lede{font-size:17px;margin-top:12px}
-  .cta{margin-top:24px;gap:10px}
+  .lede{font-size:17px;margin-top:8px}
+  .cta{margin-top:16px;gap:10px}
   .cta .btn{flex:1 1 auto}
-  .heromet{margin-top:18px;gap:10px}
+  .cta .btn.s2{margin-right:60px}
+  .heromet{margin-top:12px;gap:10px}
   .kpis{grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
   .kpi{padding:16px 14px;border-radius:20px}
   .kpi .ico{display:none}
@@ -612,6 +663,10 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
   <section class="view" id="v-today">
     <div class="hero rv">
       <div class="glow" aria-hidden="true"></div>
+      <div class="weekwrap">
+        <p class="weeklabel" id="week-title">Your week so far</p>
+        <div class="week" id="week" role="group" aria-labelledby="week-title"></div>
+      </div>
       <div class="herogrid"><div>
       <div class="hello" id="greet-hello">Good afternoon, Steve.</div>
       <h2 id="greet-h"></h2>
@@ -634,7 +689,7 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
     <div class="home" id="homeGrid">
       <div class="card rv" id="queueCard">
         <div class="hd">
-          <div><div class="eyebrow">Needs you</div><h3>Ready for your OK</h3><p class="help">Tap a quote to see the QC check, materials, and hours. About 2 minutes each.</p></div>
+          <div><div class="eyebrow">Needs you</div><h3>Ready for your OK</h3><p class="help">Tap a quote to compare this draft with your closest past job. About 2 minutes each.</p></div>
         </div>
         <div id="queue"></div>
         <details class="others" id="others">
@@ -830,11 +885,11 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
   <div class="db" id="d-b"></div>
   <div class="df" id="d-f">
     <div class="sbk" id="sbk">
-      <label for="note">What should the Estimator fix?</label>
+      <label for="note">What should the Estimator change?</label>
       <div class="chips"><button class="chip" onclick="addNote('Check labor hours')">Check labor hours</button><button class="chip" onclick="addNote('Missing materials')">Missing materials</button><button class="chip" onclick="addNote('Need site photos')">Need site photos</button></div>
       <textarea id="note" placeholder="Short note for the team (optional)"></textarea>
     </div>
-    <button class="btn x" id="b-back" onclick="sendBack()">Send back</button>
+    <button class="btn x" id="b-back" onclick="sendBack()">Ask a change</button>
     <button class="btn p" id="b-ok" onclick="approve()">Approve</button>
   </div>
   <div class="df" id="w-f" style="display:none"><button class="btn x" onclick="editPlan()">Edit</button><button class="btn p" onclick="approvePlan()">Approve plan</button></div>
@@ -842,11 +897,11 @@ footer b{color:var(--ink2);font-weight:600;font-size:13px}
 
 <button class="fab" id="fab" onclick="openChat()" aria-label="Ask your AI team" aria-controls="chat" aria-expanded="false"><span class="fi"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span class="lbl">Ask your AI team</span></button>
 <div class="nudge" id="nudge">New here? Ask me how anything on this screen works.<button onclick="hideNudge()" aria-label="Dismiss">&times;</button></div>
-<section class="chat" id="chat" role="dialog" aria-label="Ask your AI team, demo guide" aria-hidden="true">
-  <div class="ch"><div class="av"><svg width="20" height="20" aria-hidden="true"><use href="#i-chat"/></svg></div><div><b>Ask your AI team</b><span>Demo guide, sample answers</span></div><button class="x" onclick="closeChat()" aria-label="Close chat">&times;</button></div>
+<section class="chat" id="chat" role="dialog" aria-label="Ask your AI team" aria-hidden="true">
+  <div class="ch"><div class="av"><svg width="20" height="20" aria-hidden="true"><use href="#i-chat"/></svg></div><div><b>Ask your AI team</b><span>Answers from your quotes</span></div><button class="x" onclick="closeChat()" aria-label="Close chat">&times;</button></div>
   <div class="cb" id="cb"></div>
   <form class="cf" id="cf"><input id="ci" placeholder="Ask a question" autocomplete="off" aria-label="Your question"><button type="submit">Ask</button></form>
-  <div class="demo">Mockup guide. Answers are scripted from this page.</div>
+  <div class="demo">Answers use the quotes loaded on this page.</div>
 </section>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="config.js"></script>
@@ -938,41 +993,109 @@ function renderActivity(){
   Q('#miniTrain').textContent=last.rate+'% match, go-live at '+D.goLive+'% (sample)';
 }
 
+/* hours, week, and quote compare */
+function hourLabel(n){
+  if(n==null||n==='')return 'Not set';
+  var x=Math.round(Number(n)*10)/10;
+  if(isNaN(x))return 'Not set';
+  return (x%1===0?String(x):x.toFixed(1))+' h';
+}
+function hourPlain(n){
+  if(n==null||isNaN(Number(n)))return null;
+  var x=Math.round(Number(n)*10)/10;
+  return x%1===0?String(x):x.toFixed(1);
+}
+function matHot(m){
+  var s=((m.stock||'')+' '+(m.store||'')).toLowerCase();
+  return s.indexOf('added by qc')>-1||s.indexOf('low stock')>-1;
+}
+function weekStats(){
+  var jobs=D.jobs||[], sent=jobs.filter(function(j){return j.status==='sent'}), wait=jobs.filter(function(j){return j.status==='wait'}), hours=0, fastest=null;
+  sent.forEach(function(j){if(j.botHours!=null&&!isNaN(Number(j.botHours)))hours+=Number(j.botHours)});
+  hours=Math.round(hours*10)/10;
+  jobs.forEach(function(j){
+    if(j.waiting==null||isNaN(Number(j.waiting)))return;
+    var w=Number(j.waiting);
+    if(fastest==null||w<fastest)fastest=w;
+  });
+  return {sent:sent.length,hours:hours,fastest:fastest,waiting:wait.length};
+}
+var LHA_MOTION_READY=false;
+function lhaKickWeek(){
+  var root=Q('#week');if(!root||typeof countUp!=='function')return;
+  Array.prototype.forEach.call(root.querySelectorAll('.cu'),countUp);
+}
+function statNum(value,unit){
+  var n=hourPlain(value);
+  if(n==null)return '<b class="num"><span>None</span></b>';
+  return '<b class="num"><span class="cu" data-to="'+n+'">'+n+'</span>'+(unit?'<small>'+unit+'</small>':'')+'</b>';
+}
+function renderWeek(){
+  var s=weekStats();
+  var fast=s.fastest==null?'<b class="num"><span>None</span></b>':statNum(s.fastest,'h');
+  var cards=[
+    [statNum(s.sent,''),'Quotes sent','Approved and on their way','Quotes sent, '+s.sent],
+    [statNum(s.hours,'h'),'Hours given back','Labor hours on quotes you sent','Hours given back, '+hourLabel(s.hours)+' of labor on quotes you sent'],
+    [fast,'Fastest turnaround','Shortest wait to reach you',s.fastest==null?'Fastest turnaround, none yet':'Fastest turnaround, '+hourLabel(s.fastest)],
+    [statNum(s.waiting,''),'Quotes waiting','Ready for your OK','Quotes waiting, '+s.waiting]
+  ];
+  Q('#week').innerHTML=cards.map(function(c){
+    return '<div class="ws" aria-label="'+esc(c[3])+'">'+c[0]+'<span class="wl">'+c[1]+'</span><span class="wd">'+c[2]+'</span></div>';
+  }).join('');
+  if(LHA_MOTION_READY)lhaKickWeek();
+}
+function diffLine(j){
+  var parts=[];
+  if(j.botHours!=null&&j.pastHours!=null&&!isNaN(Number(j.botHours))&&!isNaN(Number(j.pastHours))){
+    var d=Math.round((Number(j.botHours)-Number(j.pastHours))*10)/10, ad=Math.abs(d), hs=ad%1?ad.toFixed(1):String(ad);
+    if(d===0)parts.push('Labor hours match the past job.');
+    else if(d>0)parts.push('Labor is '+hs+' h higher than the past job.');
+    else parts.push('Labor is '+hs+' h lower than the past job.');
+  }
+  var hot=(j.materials||[]).filter(matHot);
+  if(hot.length)parts.push('Highlighted: '+hot.map(function(m){return m.item+' ('+m.stock+')'}).join('; ')+'.');
+  if(j.firstDraftHours!=null&&j.botHours!=null&&Number(j.firstDraftHours)!==Number(j.botHours))parts.push('QC changed the first draft from '+hourLabel(j.firstDraftHours)+' to '+hourLabel(j.botHours)+'.');
+  if(!parts.length)parts.push(j.pastRef?'Scope sits next to that past job so the gap is easy to see.':'No similar past job is attached yet.');
+  return parts.join(' ');
+}
+function compareHtml(j){
+  var mats=j.materials||[], labor=j.labor||[];
+  var hourClass='';
+  if(j.botHours!=null&&j.pastHours!=null)hourClass=Number(j.botHours)===Number(j.pastHours)?' match':' diff';
+  var laborHtml=labor.length?'<ul class="sl">'+labor.map(function(l){return '<li><span>'+esc(l[0])+'</span><b>'+hourLabel(l[1])+'</b></li>'}).join('')+'</ul>':'<p class="quiet">Labor lines are not on this draft yet.</p>';
+  var matHtml=mats.length?'<ul class="sl">'+mats.map(function(m){return '<li class="'+(matHot(m)?'hot':'')+'"><span>'+esc(m.item)+'<i>'+esc(m.store||'')+'</i></span><b>'+esc(m.stock||'')+'</b></li>'}).join('')+'</ul>':'<p class="quiet">Materials are still being pulled.</p>';
+  var first='';
+  if(j.firstDraftHours!=null&&j.botHours!=null&&Number(j.firstDraftHours)!==Number(j.botHours))first='<div class="delta">First draft was '+hourLabel(j.firstDraftHours)+'. QC set this draft to '+hourLabel(j.botHours)+'.</div>';
+  var pastInner;
+  if(j.pastHours==null&&!j.pastRef)pastInner='<p class="quiet">No similar past job is attached yet. QC still notes what changed.</p>';
+  else pastInner='<div class="big'+hourClass+'">'+hourLabel(j.pastHours)+'</div><div class="cap">labor on that job</div><p class="scope">'+esc(j.pastRef||'Reference not named')+'</p><div class="sub">What is different</div><p class="scope">'+esc(diffLine(j))+'</p>';
+  return '<div class="cmpx" aria-label="This draft compared with the closest past job"><article class="side now"><div class="k">This draft</div><div class="big'+hourClass+'">'+hourLabel(j.botHours)+'</div><div class="cap">labor hours</div>'+first+'<div class="sub">Labor</div>'+laborHtml+'<div class="sub">Materials</div>'+matHtml+'</article><article class="side past"><div class="k">Closest past job</div>'+pastInner+'</article></div>';
+}
 /* detail panel */
 function openJob(id){
   var j=D.jobs.find(function(x){return x.id===id});if(!j)return;cur=j;
-  var s=ST[j.status];
+  var s=ST[j.status]||['s-draft','Draft'];
+  var qc=j.qc||{level:'ok',title:'',text:''};
   Q('#d-st').innerHTML='<span class="st '+s[0]+'">'+s[1]+'</span>';
   Q('#d-t').textContent=j.job;
-  Q('#d-m').textContent=j.id+' · '+j.area+' '+j.zip+' · '+j.type+' · '+j.inbox;
-  var h='<h5>QC check</h5><div class="qc '+j.qc.level+'"><b>'+esc(j.qc.title)+'</b>'+esc(j.qc.text);
-  if(j.botHours!=null&&j.pastHours!=null){
-    var mx=Math.max(j.firstDraftHours||0,j.botHours,j.pastHours)*1.1;
-    var row=function(l,v,c){return '<span>'+l+'</span><div class="barx"><i style="width:'+(v/mx*100)+'%;background:'+c+'"></i></div><b>'+v+' h</b>'};
-    h+='<div class="cmp">'+(j.firstDraftHours!==j.botHours?row('First draft',j.firstDraftHours,'var(--act)'):'')+row('This quote',j.botHours,'var(--brand)')+row('Past job',j.pastHours,'var(--good)')+'</div><div style="font-size:12px;color:var(--ink3);margin-top:8px">Reference: '+esc(j.pastRef)+'</div>';
-  }
-  h+='</div>';
-  if(j.materials.length){
-    h+='<h5>Materials from stores near '+j.zip+'</h5><div class="grp">'+j.materials.map(function(m){return '<div class="li"><div>'+esc(m.item)+'<div class="s">'+esc(m.store)+' · <span style="color:var(--'+(m.stock==='Low stock'?'watch-ink':'good-ink')+');font-weight:600">'+m.stock+'</span></div></div><div class="p">qty '+m.qty+'</div></div>'}).join('');
-  }
-  if(j.labor.length){
-    var tot=j.labor.reduce(function(a,l){return a+l[1]},0);
-    h+='<h5>Labor hours</h5><div class="grp">'+j.labor.map(function(l){return '<div class="li"><div>'+esc(l[0])+'</div><div class="p">'+l[1]+' h</div></div>'}).join('')+'<div class="li"><div><b>Total labor</b><div class="s">From your rate files and task-time PDF</div></div><div class="p">'+tot+' h</div></div></div>';
-    h+='<h5>Pricing</h5><div class="method"><b>Your pricing method, applied on approval</b>The customer price is calculated from these materials and hours using Steve\'s own method. This mockup shows no prices.</div>';
-  }
+  Q('#d-m').textContent=j.id+' · '+(j.area||'')+' '+(j.zip||'')+' · '+(j.type||'')+' · '+(j.inbox||'');
+  var h=compareHtml(j);
+  h+='<h5>QC notes</h5><div class="qc '+(qc.level||'ok')+'"><b>'+esc(qc.title||'QC check')+'</b>'+esc(qc.text||'')+'</div>';
+  if((j.labor||[]).length)h+='<h5>Pricing</h5><div class="method"><b>Your pricing method, applied on approval</b>The customer price is calculated from these materials and hours using Steve\'s own method. This mockup shows no prices.</div>';
   Q('#d-b').innerHTML=h;Q('#d-b').scrollTop=0;
-  Q('#sbk').classList.remove('on');Q('#note').value='';Q('#b-back').textContent='Send back';
+  Q('#sbk').classList.remove('on');Q('#note').value='';Q('#b-back').textContent='Ask a change';
   Q('#d-f').style.display=j.status==='wait'?'flex':'none';
   Q('#w-f').style.display='none';
+  Q('#drawer').classList.add('wide');
   showSheet();
 }
 var lastFocus=null;
 function showSheet(){lastFocus=document.activeElement;Q('#drawer').classList.add('on');Q('#scrim').classList.add('on');Q('#drawer').setAttribute('aria-hidden','false');setTimeout(function(){Q('#drawer .x').focus({preventScroll:true})},60)}
-function closeJob(){var was=Q('#drawer').classList.contains('on');Q('#drawer').classList.remove('on');Q('#scrim').classList.remove('on');Q('#drawer').setAttribute('aria-hidden','true');if(was&&lastFocus&&document.body.contains(lastFocus))lastFocus.focus({preventScroll:true})}
+function closeJob(){var was=Q('#drawer').classList.contains('on');Q('#drawer').classList.remove('on');Q('#drawer').classList.remove('wide');Q('#scrim').classList.remove('on');Q('#drawer').setAttribute('aria-hidden','true');if(was&&lastFocus&&document.body.contains(lastFocus))lastFocus.focus({preventScroll:true})}
 function addNote(t){var n=Q('#note');n.value=n.value?n.value+'. '+t:t}
 function sendBack(){
   var s=Q('#sbk');
-  if(!s.classList.contains('on')){s.classList.add('on');Q('#b-back').textContent='Confirm send back';Q('#note').focus();return}
+  if(!s.classList.contains('on')){s.classList.add('on');Q('#b-back').textContent='Confirm change';Q('#note').focus();return}
   cur.status='back';toast(cur.id+' sent back to the Estimator with your note. Mockup only.');closeJob();renderAll();
 }
 function approve(){cur.status='sent';toast(cur.id+' approved. Mockup only, nothing was sent.');closeJob();renderAll()}
@@ -983,7 +1106,7 @@ var TEAM=[
  {av:'IN',n:'Intake Coordinator',r:'One per inbox',ct:'2 reading now',own:'Reads each new request, pulls zip, job type, and dimensions, sorts residential or commercial, logs the job.',hand:'Residential to the Estimator. Commercial is held for you.',never:'Never messages a customer. Never rejects a lead.'},
  {av:'ES',n:'Estimator',r:'Materials and labor',ct:'1 drafting',own:"Checks materials and stock at the Home Depot and Lowe's nearest the job zip and sets labor hours from your rate files.",hand:'Draft quote to the QC Reviewer.',never:'Never guesses. Missing details become a flag.'},
  {av:'QC',n:'QC Reviewer',r:'Checks against your history',ct:'2 catches today',own:'Compares every draft to similar jobs from your last 36 months: hours, disposal, quantities, stock.',hand:'Checked quote to Steve or Matt, with any flags shown.',never:'Never silently rewrites. Every change is shown.'},
- {av:'SM',n:'Steve or Matt',r:'You approve',ct:'',own:'Reviews the checked quote from a text or this screen and taps Approve or Send back.',hand:'Approved quote goes back to handyman.com and into HouseCall Pro.',never:'Nothing reaches a customer without this step.',h:true}
+ {av:'SM',n:'Steve or Matt',r:'You approve',ct:'',own:'Reviews the checked quote from a text or this screen and taps Approve or asks for a change.',hand:'Approved quote goes back to handyman.com and into HouseCall Pro.',never:'Nothing reaches a customer without this step.',h:true}
 ];
 var paused={},sel=0;
 var FICO=[
@@ -1051,6 +1174,7 @@ var MOVES=[
 var planOk=false;
 function openWeather(){
   cur=null;
+  Q('#drawer').classList.remove('wide');
   Q('#d-st').innerHTML='<span class="st s-draft">Preview: coming next</span>';
   Q('#d-t').textContent='Rain-day plan for Thursday';
   Q('#d-m').textContent='Sample forecast and sample jobs · job IDs and zips only';
@@ -1084,7 +1208,7 @@ Q('#calcR').addEventListener('input',calc);
 
 /* guide chat */
 var FAQ=[
- {id:'approve',q:'How do I approve a quote?',k:['approve','approval','ok','yes','accept','review','send back','queue','reject'],a:function(){var w=waiting();return 'Tap any quote under Ready for your OK. Read the QC note at the top, glance at materials and hours, then tap Approve or Send back with a short note. You can also just reply APPROVE to the text you get.'},b:function(){var w=waiting();return w.length?['Open a quote',function(){openJob(w[0].id)}]:['Go to Today',function(){go('today')}]}},
+ {id:'approve',q:'How do I approve a quote?',k:['approve','approval','ok','yes','accept','review','send back','queue','reject'],a:function(){var w=waiting();return 'Tap any quote under Ready for your OK. Compare the draft with the closest past job, read the QC note, then tap Approve or Ask a change. You can also just reply APPROVE to the text you get.'},b:function(){var w=waiting();return w.length?['Open a quote',function(){openJob(w[0].id)}]:['Go to Today',function(){go('today')}]}},
  {id:'bots',q:'What does each bot do?',k:['bot','bots','team','intake','estimator','qc reviewer','each','who','role','pause'],a:function(){return 'Intake reads each inbox and sorts the lead. The Estimator checks materials at stores near the job zip and sets labor hours from your rate files. QC compares the draft to your past jobs, then you approve.'},b:function(){return ['See the AI team',function(){go('team')}]}},
  {id:'qc',q:'Why did QC flag a quote?',k:['qc','flag','flagged','why','mistake','wrong','check','corrected','caught'],a:function(){var j=(cur&&cur.qc.level==='fl')?cur:D.jobs.find(function(x){return x.id==='HM-1048'});return 'On '+j.id+': '+j.qc.text},b:function(){var j=(cur&&cur.qc.level==='fl')?cur:{id:'HM-1048'};return ['Open '+j.id,function(){openJob(j.id)}]}},
  {id:'training',q:'When do we go live?',k:['train','training','live','go live','golive','match','ready','90','side by side'],a:function(){return 'During 7 to 10 days of training, the Estimator drafts next to your own quotes and we measure how close it gets. It goes live after 3 days in a row at 90% or higher, and you still approve every quote after that.'},b:function(){return ['See training',function(){go('training')}]}},
@@ -1120,23 +1244,125 @@ function match(text){
   FAQ.forEach(function(f){var s=0;f.k.forEach(function(k){if(t.indexOf(k.indexOf(' ')>-1?k:' '+k)>-1)s+=k.length>5?2:1});if(s>score){score=s;best=f}});
   return best;
 }
+function hasWord(t,words){return words.some(function(w){return t.indexOf(w)>-1})}
+function findJob(text){
+  var t=String(text||'').toLowerCase(), m=t.match(/hm[\s-]*(\d{3,5})/);
+  if(m){
+    var id='hm-'+m[1];
+    var hit=(D.jobs||[]).find(function(j){return String(j.id).toLowerCase()===id});
+    if(hit)return hit;
+  }
+  var best=null, score=0;
+  (D.jobs||[]).forEach(function(j){
+    var s=0;
+    String(j.job||'').toLowerCase().split(/[^a-z0-9]+/).forEach(function(w){if(w.length>3&&t.indexOf(w)>-1)s+=w.length});
+    if(s>score){score=s;best=j}
+  });
+  return score>=8?best:null;
+}
+function whyHours(j){
+  var parts=[j.id+' is '+j.job+'.'];
+  if(j.botHours!=null)parts.push('The draft in front of you is '+hourLabel(j.botHours)+' of labor.');
+  else parts.push('Labor hours are not set on this one yet.');
+  if(j.pastHours!=null)parts.push('Closest past job'+(j.pastRef?': '+j.pastRef:'')+', '+hourLabel(j.pastHours)+'.');
+  if(j.qc&&j.qc.text)parts.push(j.qc.text);
+  else if(j.labor&&j.labor.length)parts.push('Labor lines: '+j.labor.map(function(l){return l[0]+' '+hourLabel(l[1])}).join(', ')+'.');
+  if(j.firstDraftHours!=null&&j.botHours!=null&&Number(j.firstDraftHours)!==Number(j.botHours)&&!(j.qc&&j.qc.text))parts.push('The first draft was '+hourLabel(j.firstDraftHours)+', and the current draft is '+hourLabel(j.botHours)+'.');
+  return parts.join(' ');
+}
+function grounded(text){
+  var t=' '+String(text||'').toLowerCase().replace(/[^a-z0-9% ]/g,' ')+' ';
+  var job=findJob(text);
+  if(job&&hasWord(t,['why','hour','hours','labor','long','draft']))return whyHours(job);
+  if(job&&hasWord(t,['qc','flag','caught','catch']))return job.id+' QC: '+(job.qc&&job.qc.title?job.qc.title+'. ':'')+((job.qc&&job.qc.text)||'No QC note on this quote.');
+  if(job&&hasWord(t,['material','materials','stock','scope'])){
+    if(!job.materials||!job.materials.length)return job.id+' does not have a materials list yet. '+((job.qc&&job.qc.text)||'');
+    return job.id+' materials: '+job.materials.map(function(m){return m.item+' ('+(m.stock||'stock not listed')+', qty '+m.qty+')'}).join('; ')+'.';
+  }
+  if(hasWord(t,['waiting','wait','queue','ready for'])){
+    var w=waiting().slice().sort(function(a,b){return (b.waiting||0)-(a.waiting||0)});
+    if(!w.length)return 'Nothing is waiting on you. The team will text you when the next quote is ready.';
+    return 'You have '+w.length+' quote'+(w.length===1?'':'s')+' waiting. '+w.map(function(j){return j.id+' '+j.job+', '+hourLabel(j.botHours)+', waiting '+(j.waiting==null?'an unknown time':j.waiting+' h')}).join('. ')+'.';
+  }
+  if(hasWord(t,['qc','caught','catch','flagged'])){
+    var flagged=(D.jobs||[]).filter(function(j){return j.qc&&j.qc.level==='fl'&&j.status!=='hold'});
+    if(!flagged.length)return 'QC has no open catches on the quotes loaded right now.';
+    return 'QC caught '+flagged.length+' thing'+(flagged.length===1?'':'s')+' on the quotes in front of you. '+flagged.map(function(j){return j.id+': '+(j.qc.short?j.qc.short+'. ':'')+(j.qc.text||'')}).join(' ');
+  }
+  if(hasWord(t,['next step','path to'])||(t.indexOf('go live')>-1&&hasWord(t,['next','step','path']))){
+    var step=PATH[PATH_NOW]||PATH[0];
+    var pausedBots=TEAM.filter(function(m,i){return paused[i]&&!m.h});
+    var run=pausedBots.length?('Paused right now: '+pausedBots.map(function(m){return m.n}).join(', ')+'.'):'Every bot is running.';
+    return 'You are on step '+(PATH_NOW+1)+' of '+PATH.length+', '+step[0]+'. '+step[1]+' '+run+' Nothing goes to a customer until you approve it.';
+  }
+  if(job){
+    var st=ST[job.status]?ST[job.status][1]:job.status;
+    return job.id+' is '+job.job+' in '+(job.area||'')+' '+(job.zip||'')+'. Status: '+st+'. '+(job.botHours!=null?'Draft labor '+hourLabel(job.botHours)+'. ':'')+((job.qc&&job.qc.text)||'');
+  }
+  return null;
+}
+function chipsText(pairs){
+  var d=document.createElement('div');d.className='sugg';
+  pairs.forEach(function(p){
+    var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=p[0];
+    b.onclick=function(){askText(p[1],b)};
+    d.appendChild(b);
+  });
+  Q('#cb').appendChild(d);Q('#cb').scrollTop=Q('#cb').scrollHeight;
+}
+function lhaAiEndpoint(){var c=window.LHA_CONFIG||{};return String(c.aiEndpoint||'').trim()}
+function quoteContext(question){
+  return {
+    question:question,
+    quotes:(D.jobs||[]).map(function(j){return {id:j.id,job:j.job,status:j.status,area:j.area,zip:j.zip,type:j.type,waiting:j.waiting==null?null:j.waiting,botHours:j.botHours==null?null:j.botHours,firstDraftHours:j.firstDraftHours==null?null:j.firstDraftHours,pastHours:j.pastHours==null?null:j.pastHours,pastRef:j.pastRef||null,materials:j.materials||[],labor:j.labor||[],qc:j.qc||null}}),
+    week:weekStats(),
+    path:PATH.map(function(p,i){return {title:p[0],detail:p[1],state:i<PATH_NOW?'done':i===PATH_NOW?'now':'ahead'}}),
+    bots:TEAM.map(function(m,i){return {name:m.n,paused:!!paused[i]}})
+  };
+}
+function localReply(v){
+  var g=grounded(v);
+  if(g){addMsg(esc(g),'bot');return}
+  var f=match(v);
+  if(f)answer(f);
+  else{addMsg('I answer from the quotes on this page. Try a job code like HM-1048, or ask what is waiting, what QC caught, or your next step to go live.','bot');chipsText([["What's waiting","What's waiting"],['What QC caught','What did the QC catch this week'],['Why HM-1048 is 17 h','Why is HM-1048 17 hours'],['Next step','What is my next step to go live']])}
+}
+function replyTo(v){
+  var url=lhaAiEndpoint();
+  if(!url){localReply(v);return}
+  LHA_HYDRATING=true;
+  var hold=addMsg('One moment.','bot');
+  LHA_HYDRATING=false;
+  fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(quoteContext(v))}).then(function(r){if(!r.ok)throw new Error('bad');return r.json()}).then(function(data){
+    var reply=data&&(data.reply||data.answer||data.text);
+    if(!reply)throw new Error('empty');
+    hold.innerHTML=esc(String(reply));
+    if(typeof lhaPersistChat==='function')lhaPersistChat('bot',String(reply));
+  }).catch(function(){if(hold&&hold.parentNode)hold.parentNode.removeChild(hold);localReply(v)});
+}
+function askText(q,el){if(el&&el.parentNode)el.parentNode.remove();addMsg(esc(q),'me');setTimeout(function(){replyTo(q)},250)}
 Q('#cf').addEventListener('submit',function(e){
   e.preventDefault();var v=Q('#ci').value.trim();if(!v)return;Q('#ci').value='';
   QA('#cb .sugg').forEach(function(s){s.remove()});
-  addMsg(esc(v),'me');var f=match(v);
-  setTimeout(function(){if(f)answer(f);else{addMsg('Good question. I am a demo guide with scripted answers, so I do not have that one yet. Try one of these:','bot');chips(MAIN)}},250);
+  addMsg(esc(v),'me');
+  setTimeout(function(){replyTo(v)},250);
 });
 var started=false;
 function openChat(){
   hideNudge();Q('#chat').classList.add('on');Q('#chat').setAttribute('aria-hidden','false');Q('#fab').style.display='none';Q('#fab').setAttribute('aria-expanded','true');setTimeout(function(){Q('#ci').focus({preventScroll:true})},80);
-  if(!started){started=true;addMsg((view==='matt'?'Hi Matt.':'Hi Steve.')+' I am your AI team guide. Ask me anything about this dashboard, or tap a question below.','bot');chips(MAIN)}
+  if(!started){
+    started=true;
+    var s=weekStats();
+    addMsg((view==='matt'?'Hi Matt. ':'Hi Steve. ')+'Your week so far is '+s.sent+' sent, '+hourLabel(s.hours)+' of labor on those, and '+s.waiting+' waiting. Ask about a job, what is waiting, what QC caught, or your next step.','bot');
+    chipsText([["What's waiting","What's waiting"],['What QC caught','What did the QC catch this week'],['Why HM-1048 is 17 h','Why is HM-1048 17 hours'],['Next step','What is my next step to go live']]);
+  }
 }
 function closeChat(){var was=Q('#chat').classList.contains('on');Q('#chat').classList.remove('on');Q('#chat').setAttribute('aria-hidden','true');Q('#fab').style.display='';Q('#fab').setAttribute('aria-expanded','false');if(was)Q('#fab').focus({preventScroll:true})}
 function hideNudge(){Q('#nudge').classList.remove('on');store('lh_nudge','1')}
 
 QA('.seg button').forEach(function(b){b.onclick=function(){QA('.seg button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});view=b.dataset.view;document.body.classList.toggle('v-matt',view==='matt');renderGreet()}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeJob();closeChat()}});
-function renderAll(){renderNav();renderGreet();renderNextUp();renderKpis();renderQueue();renderActivity();renderFlow()}
+function renderAll(){renderNav();renderGreet();renderWeek();renderNextUp();renderKpis();renderQueue();renderActivity();renderFlow()}
 Q('#upd').textContent=D.updatedAt;
 renderPath();renderAll();renderTraining();renderTools();renderLearn();calc();
 if(store('lh_how')==='hidden')hideHow();
@@ -1144,6 +1370,7 @@ var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').
 function countUp(el){var to=parseFloat(el.dataset.to);if(RM||isNaN(to)||el.dataset.done)return;el.dataset.done=1;var dec=String(el.dataset.to).indexOf('.')>-1?1:0,t0=performance.now(),dur=900;function f(t){var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(f);else el.textContent=el.dataset.to}requestAnimationFrame(f)}
 function onIn(el){el.classList.add('in');QA('#'+(el.id||'_none')+' .cu').forEach(countUp);Array.prototype.forEach.call(el.querySelectorAll('.cu'),countUp);if(el.querySelector('#ring'))animRing()}
 if('IntersectionObserver' in window&&!RM){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){onIn(e.target);io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});QA('.rv').forEach(function(el){io.observe(el)})}else{QA('.rv').forEach(onIn)}
+LHA_MOTION_READY=true;lhaKickWeek();
 if(!store('lh_nudge')){setTimeout(function(){if(!Q('#chat').classList.contains('on')&&!store('lh_nudge'))Q('#nudge').classList.add('on')},2500);setTimeout(function(){Q('#nudge').classList.remove('on')},12000)}
 
 var LHA_SB=null,LHA_BETA=false,LHA_HYDRATING=false;
@@ -1160,6 +1387,7 @@ function lhaQuoteToJob(row){
   if(row.first_draft_hours!=null)job.firstDraftHours=lhaNum(row.first_draft_hours);
   if(row.past_hours!=null)job.pastHours=lhaNum(row.past_hours);
   if(row.past_ref)job.pastRef=row.past_ref;
+  if(row.created_at)job.createdAt=row.created_at;
   return job;
 }
 function lhaApplyApprovals(rows){
@@ -1238,6 +1466,7 @@ function lhaConnect(){
       return;
     }
     LHA_BETA=true;
+    window.LHA_APPROVALS=res[1].data||[];
     if(res[0].data&&res[0].data.length)D.jobs=res[0].data.map(lhaQuoteToJob);
     lhaApplyApprovals(res[1].data);
     lhaApplySteps(res[2].data);
