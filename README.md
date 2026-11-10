@@ -6,7 +6,7 @@ This page is a mockup. It shows sample data only. Nothing is sent to a customer.
 
 ## Sample mode
 
-`config.js` ships with an empty Supabase URL and anon key. When both are empty, the page uses its built-in sample quotes, step state, and chat. It does not load Supabase.
+When the Supabase URL and anon key in `config.js` are both empty, the page uses its built-in sample quotes, step state, and chat. It does not load Supabase. The checked-in file has the public project URL and anon key for this beta.
 
 ## Turn on the Supabase beta
 
@@ -18,6 +18,8 @@ This project is shared with other apps. The demo uses only these `public` tables
 4. Reload the page. The header label reads `Beta · Mockup with sample data`. Quote approvals, bot step progress, and the guide chat are saved in Supabase.
 
 Clear both values in `config.js` to return to the built-in sample data. The label returns to `Mockup with sample data`.
+
+`config.js` also has `aiEndpoint`. Leave it empty. The chat then answers from the quotes and bot steps loaded on the page. If you set a URL, the chat POSTs the question plus that quote context there and shows the reply.
 
 ## Pages
 
