@@ -1,1 +1,1 @@
-window.LHA_CONFIG = { supabaseUrl: '', supabaseAnonKey: '' };
+window.LHA_CONFIG = { supabaseUrl: 'https://dbniiaxumlmcwnxganwe.supabase.co', supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRibmlpYXh1bWxtY3dueGdhbndlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0MDAwMDIsImV4cCI6MjEwNDk3NjAwMn0.xZ_kGifAudCgdKErmoAmJ0cXoZ08gUwYkofxGwqNR3U' };
